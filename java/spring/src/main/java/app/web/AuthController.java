@@ -1,9 +1,9 @@
-package demo.web;
+package app.web;
 
-import demo.dto.LoginRequest;
-import demo.dto.RegisterRequest;
-import demo.dto.TokenResponse;
-import demo.service.AuthService;
+import app.dto.LoginRequest;
+import app.dto.RegisterRequest;
+import app.dto.TokenResponse;
+import app.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

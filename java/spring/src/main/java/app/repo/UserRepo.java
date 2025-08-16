@@ -1,6 +1,6 @@
 package app.repo;
 
-import app.model.User;
+import app.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

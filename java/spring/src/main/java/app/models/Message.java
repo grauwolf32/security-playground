@@ -1,4 +1,4 @@
-package app.model;
+package app.models;
 
 import jakarta.persistence.*;
 import lombok.*;

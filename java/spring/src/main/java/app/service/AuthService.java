@@ -3,8 +3,8 @@ package app.service;
 import app.dto.LoginRequest;
 import app.dto.RegisterRequest;
 import app.dto.TokenResponse;
-import app.model.Session;
-import app.model.User;
+import app.models.Session;
+import app.models.User;
 import app.repo.SessionRepo;
 import app.repo.UserRepo;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -24,17 +24,17 @@ public class AuthService {
     }
 
     public void register(RegisterRequest req) {
-        users.findByName(req.name()).ifPresent(u -> {
+        users.findByName(req.getName()).ifPresent(u -> {
             throw new IllegalArgumentException("User already exists");
         });
-        String hash = BCrypt.hashpw(req.password(), BCrypt.gensalt());
-        users.save(User.builder().name(req.name()).password(hash).build());
+        String hash = BCrypt.hashpw(req.getPassword(), BCrypt.gensalt());
+        users.save(User.builder().name(req.getName()).password(hash).build());
     }
 
     public TokenResponse login(LoginRequest req) {
-        User u = users.findByName(req.name())
+        User u = users.findByName(req.getName())
                 .orElseThrow(() -> new IllegalArgumentException("Invalid credentials"));
-        if (!BCrypt.checkpw(req.password(), u.getPassword())) {
+        if (!BCrypt.checkpw(req.getPassword(), u.getPassword())) {
             throw new IllegalArgumentException("Invalid credentials");
         }
         String token = generateToken();

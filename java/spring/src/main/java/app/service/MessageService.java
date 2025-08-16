@@ -1,9 +1,9 @@
-package demo.service;
+package app.service;
 
-import demo.dto.SendMessageRequest;
-import demo.model.Message;
-import demo.repo.MessageRepo;
-import demo.repo.UserRepo;
+import app.dto.SendMessageRequest;
+import app.models.Message;
+import app.repo.MessageRepo;
+import app.repo.UserRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,12 +18,12 @@ public class MessageService {
     }
 
     public void send(Integer fromUserId, SendMessageRequest req) {
-        users.findById(req.toUserId()).orElseThrow(() -> new IllegalArgumentException("Receiver not found"));
+        users.findById(req.getToUserId()).orElseThrow(() -> new IllegalArgumentException("Receiver not found"));
         users.findById(fromUserId).orElseThrow(() -> new IllegalArgumentException("Sender not found"));
         messages.save(Message.builder()
                 .sender(fromUserId)
-                .receiver(req.toUserId())
-                .message(req.message())
+                .receiver(req.getToUserId())
+                .message(req.getMessage())
                 .build());
     }
 

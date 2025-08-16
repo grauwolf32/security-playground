@@ -1,6 +1,6 @@
 package app.security;
 
-import app.model.Session;
+import app.models.Session;
 import app.repo.SessionRepo;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,7 +22,7 @@ public class SessionFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         String token = req.getHeader("X-Session-Id");
-        if (token != null && !token.isBlank()) {
+        if (token != null && token != "") {
             Optional<Session> s = sessions.findById(token);
             if (s.isPresent() && s.get().getExpiredAt() != null &&
                 s.get().getExpiredAt() > Instant.now().getEpochSecond()) {

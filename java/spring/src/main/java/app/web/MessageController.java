@@ -1,10 +1,10 @@
-package demo.web;
+package app.web;
 
-import demo.dto.SendMessageRequest;
-import demo.model.Message;
-import demo.security.AuthContext;
-import demo.security.SessionFilter;
-import demo.service.MessageService;
+import app.dto.SendMessageRequest;
+import app.models.Message;
+import app.security.AuthContext;
+import app.security.SessionFilter;
+import app.service.MessageService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +23,7 @@ public class MessageController {
         AuthContext ctx = (AuthContext) req.getAttribute(SessionFilter.ATTR);
         if (ctx == null) throw new org.springframework.web.server.ResponseStatusException(
                 org.springframework.http.HttpStatus.UNAUTHORIZED, "Missing or expired session");
-        return ctx.userId();
+        return ctx.getUserId();
     }
 
     @PostMapping("/send")

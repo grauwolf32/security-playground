@@ -1,6 +1,6 @@
 package app.repo;
 
-import app.model.Message;
+import app.models.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
