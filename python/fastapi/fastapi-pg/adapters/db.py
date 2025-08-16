@@ -6,7 +6,7 @@ from typing import Annotated
 
 DB_PATH = Path(__file__).parent.parent.parent / "data" / "base.db"
 
-engine = create_engine(f"sqlite://{str(DB_PATH)}")
+engine = create_engine(f"sqlite:///{str(DB_PATH)}")
 
 def get_db() -> Generator[Session, None, None]:
     with Session(engine) as session:
