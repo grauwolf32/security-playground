@@ -1,0 +1,25 @@
+[project]
+name = "vulnyapi"
+version = "0.1.0"
+description = "Intentionally-vulnerable mid-sized FastAPI fixture"
+authors = [
+    {name = "grauwolf32"}
+]
+readme = "README.md"
+requires-python = "3.11"
+dependencies = [
+    "fastapi (>=0.116.1,<0.117.0)",
+    "pydantic (>=2.11.7,<3.0.0)",
+    "sqlmodel (>=0.0.24,<0.0.25)",
+    "uvicorn (>=0.35.0,<0.36.0)",
+    "passlib[bcrypt] (>=1.7.4,<1.8.0)",
+    "python-jose[cryptography] (>=3.3.0,<4.0.0)",
+    "httpx (>=0.27.0,<1.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
