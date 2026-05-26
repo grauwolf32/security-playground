@@ -1,0 +1,43 @@
+{
+  "results": [
+    {
+      "check_id": "docker:S7029",
+      "path": "Dockerfile.app",
+      "start": {"line": 18, "col": 1},
+      "end": {"line": 18, "col": 100},
+      "extra": {
+        "message": "Replace this ADD instruction with a COPY instruction.",
+        "severity": "MEDIUM",
+        "metadata": {
+          "cwe": []
+        }
+      }
+    },
+    {
+      "check_id": "docker:S7029",
+      "path": "Dockerfile.app",
+      "start": {"line": 19, "col": 1},
+      "end": {"line": 19, "col": 100},
+      "extra": {
+        "message": "Replace this ADD instruction with a COPY instruction.",
+        "severity": "MEDIUM",
+        "metadata": {
+          "cwe": []
+        }
+      }
+    },
+    {
+      "check_id": "docker:S7029",
+      "path": "Dockerfile.app",
+      "start": {"line": 20, "col": 1},
+      "end": {"line": 20, "col": 100},
+      "extra": {
+        "message": "Replace this ADD instruction with a COPY instruction.",
+        "severity": "MEDIUM",
+        "metadata": {
+          "cwe": []
+        }
+      }
+    }
+  ]
+}
